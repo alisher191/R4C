@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Robot</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="model">Model</label>
+        <input type="text" id="model" name="model">
+
+        <label for="version">Version</label>
+        <input type="text" id="version" name="version">
+
+        {% if form.version.errors %}
+            <p class="error">{{ form.version.errors }}</p>
+        {% endif %}
+
+        <label for="created">Created</label>
+        <input type="datetime" id="created" name="created">
+
+        <button type="submit">Send</button>
+
+    </form>
+</body>
+</html>
